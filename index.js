@@ -1,17 +1,24 @@
-var express     = require("express"),
-    app         = express(),
-    bodyParser  = require("body-parser"),
-    mongoose    = require("mongoose")
+const express = require("express"),
+    app = express(),
+    bodyParser = require("body-parser"),
+    mongoose = require("mongoose");
     
+// port
+const PORT = 5000 || process.env.PORT,
+        IP = process.env.IP;
+
+//Mongoose connection
 mongoose.connect("mongodb://localhost/yelp_camp");
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", 'ejs');
 
 //SCHEMA setup
-var campgroundSchema = new mongoose.Schema({
+const campgroundSchema = new mongoose.Schema({
     name: String,
     image: String
 });
+const Campground = mongoose.model("Campground", campgroundSchema);
 
 Campground.create(
     {
@@ -31,7 +38,8 @@ var campgrounds = [
         {name: "Camping number two", image: "https://farm8.staticflickr.com/7205/7121863467_eb0aa64193.jpg"},
         {name: "Camping tres", image: "https://farm2.staticflickr.com/1424/1430198323_c26451b047.jpg"}
         ];
-var Campground = mongoose.model("Campground", campgroundSchema);
+
+
 
 
 app.get("/", function(req, res){
@@ -44,9 +52,9 @@ app.get("/campgrounds", function(req, res){
 
 app.post("/campgrounds", function(req, res){
    //get data from FORM and add to campgrouds array
-   var name =  req.body.name;
-   var image =  req.body.image;
-   var newCampground = {name: name, image: image};
+   const name =  req.body.name;
+   const image =  req.body.image;
+   const newCampground = {name: name, image: image};
    campgrounds.push(newCampground);
     //redirect back to campgrounds
     res.redirect("/campgrounds")
@@ -56,6 +64,7 @@ app.get("/campgrounds/new", function(req, res) {
     res.render("new")
 });
 
-app.listen(process.env.PORT, process.env.IP, function(){
-    console.log("YelpCamp Server runs smoothly");
+//listen to port
+app.listen(PORT, IP, function(){
+    console.log(`YelpCamp Server runs smoothly at ${PORT}`);
 });
