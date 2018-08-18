@@ -1,0 +1,26 @@
+<% include ./partials/header %>
+
+<form class="mx-auto card card-body mt-4" style="width: 500px" action="/register" method="POST">
+  <fieldset>
+    <legend>Sign in</legend>
+    <div class="form-group row">
+      <label for="name" class="col-sm-3 col-form-label">Username</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" name="username" id="name" placeholder="Username">
+      </div>
+    </div>
+     <div class="form-group row">
+      <label class="col-sm-3 col-form-label" for="password">Password</label>
+      <div class="col-sm-9">
+      <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+      </div>
+      
+    </div>
+    <div class="text-center">
+    <button type="submit" class="btn btn-primary">Sign Up</button>
+    </div>
+    
+  </fieldset>
+</form>
+
+<% include ./partials/footer %>
