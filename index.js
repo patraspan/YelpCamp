@@ -5,7 +5,9 @@ const express = require("express"),
     passport = require('passport'),
     LocalStrategy = require('passport-local');
     // seedDB = require('./seeds');
-    User = require('./models/user');
+    User = require('./models/user'),
+    methodOverride = require('method-override');
+
     //Routes imports
 const commentRoutes = require('./routes/comments'),
       campgroundRoutes = require('./routes/campgrounds'),
@@ -43,6 +45,8 @@ app.use((req, res, next) => {
     res.locals.currentUser = req.user;
     next();
 });
+
+app.use(methodOverride('_method'));
 
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {

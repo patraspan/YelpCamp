@@ -31,6 +31,9 @@ router.get('/login', (req, res) => {
   res.render("login");
   
 });
+router.get('/loginPage', (req, res) => {
+  res.render('loginPage');
+});
 
 //login logic
 router.post('/login', passport.authenticate("local", 

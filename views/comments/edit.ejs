@@ -1,0 +1,25 @@
+<% include ../partials/header %>
+
+    <div class="container">
+        <h1 class="text-center mb-4">Edit Comment</h1>
+        <div>
+            <form class="ml-auto mr-auto" style="width: 50%" action="/campgrounds/<%= campground_id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls">
+                        <label>Comment</label>
+                        <textarea cols="30" rows="5" class="form-control" name="comment[text]" id="text" required
+                            data-validation-required-message="Please enter a content."><%= comment.text %></textarea>
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-lg btn-primary btn-block">Accept</button>
+                    </div>
+                </div>
+                <a href="/campgrounds" class="btn btn-outline-secondary"> GO BACK</a>
+            </form>
+        </div>
+    </div>
+
+    <% include ../partials/footer %>

@@ -1,0 +1,44 @@
+<!-- Modal -->
+<div class="modal fade" id="aa" tabindex="-1" role="dialog" aria-labelledby="LoginModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="aa">Log in</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/login" method="POST">
+          <fieldset>
+            <legend>Edit</legend>
+            <div class="form-group row">
+              <label for="name" class="col-sm-3 col-form-label">Username</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" name="username" id="name" placeholder="Username">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label" for="password">Password</label>
+              <div class="col-sm-9">
+                <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+              </div>
+
+            </div>
+            
+
+          </fieldset>
+        
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Log in</button>
+          
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
