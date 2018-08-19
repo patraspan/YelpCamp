@@ -1,26 +1,62 @@
 <% include ./partials/header %>
 
-<form class="mx-auto card card-body mt-4" style="width: 500px" action="/register" method="POST">
-  <fieldset>
-    <legend>Sign in</legend>
-    <div class="form-group row">
-      <label for="name" class="col-sm-3 col-form-label">Username</label>
-      <div class="col-sm-9">
-        <input type="text" class="form-control" name="username" id="name" placeholder="Username">
+  <form class="mx-auto card card-body mt-4" style="width: 500px" action="/register" method="POST">
+    <fieldset>
+      <legend>Sign in</legend>
+      <div class="form-group row">
+        <label for="name" class="col-sm-3 col-form-label">Username</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" name="username" placeholder="Username">
+        </div>
       </div>
-    </div>
-     <div class="form-group row">
-      <label class="col-sm-3 col-form-label" for="password">Password</label>
-      <div class="col-sm-9">
-      <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+      <div class="form-group row">
+        <label class="col-sm-3 col-form-label" for="password">Password</label>
+        <div class="col-sm-9">
+          <input type="password" class="form-control" name="password" placeholder="Password">
+        </div>
       </div>
-      
-    </div>
-    <div class="text-center">
-    <button type="submit" class="btn btn-primary">Sign Up</button>
-    </div>
-    
-  </fieldset>
-</form>
+      <hr>
+      <div class="form-group row">
+        <label class="col-sm-3 col-form-label" for="password">admin Code</label>
+        <div class="col-sm-9">
+          <input type="password" class="form-control" name="adminCode" placeholder="code">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-3 col-form-label" for="firstName">First Name</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" name="firstName" placeholder="First Name">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-3 col-form-label" for="lastName">Last Name</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" name="lastName" placeholder="Last Name">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-3 col-form-label" for="email">Email</label>
+        <div class="col-sm-9">
+          <input type="email" class="form-control" name="email" placeholder="Email">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-3 col-form-label" for="avatar">Avatar</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" name="avatar" placeholder="Avatar link">
+        </div>
+      </div>
 
-<% include ./partials/footer %>
+
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+        <p class="small text-right">Already have an account?
+          <a href="/loginPage">Log in!</a>
+        </p>
+      </div>
+
+    </fieldset>
+  </form>
+
+  <% include ./partials/footer %>
