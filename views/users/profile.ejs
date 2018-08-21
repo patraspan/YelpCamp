@@ -34,12 +34,22 @@
       <%= user.username%>'s Campgrounds:</h3>
     <ul>
       <% campgrounds.forEach(function(campground) {%>
-        <a href="/campgrounds/<%= campground.id%> ">
-          <%= campground.name%>
+        <a href="/campgrounds/<%= campground.id %> ">
+          <%= campground.name %>
         </a>
         <% }) %>
     </ul>
   </div>
   </div>
+  <a 
+  class="btn btn-outline-warning" 
+  href="/users/<%= user._id %>/edit">Edit</a>
+  <form style="display: inline;" action="/users/<%= user._id %>/?_method=DELETE" method="POST">
+  <button class="btn btn-outline-danger ">Delete</button>
+  </form>
   </div>
+  
+  
+ 
+
   <% include ../partials/footer %>

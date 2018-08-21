@@ -14,6 +14,7 @@ const express = require("express"),
     //Routes imports
 const commentRoutes = require('./routes/comments'),
       campgroundRoutes = require('./routes/campgrounds'),
+      usersRoutes = require('./routes/users');
       indexRoutes = require('./routes/index');
 
 // port
@@ -22,7 +23,7 @@ const PORT = 5000 || process.env.PORT,
 
 //Mongoose connection
 
-mongoose.connect("mongodb://localhost/yelp_camp_v2");
+mongoose.connect("mongodb://localhost/yelp_camp_v3");
 app.use(bodyParser.urlencoded({
     extended: true
 }));
@@ -59,6 +60,7 @@ app.use((req, res, next) => {
 
 app.use(indexRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
+app.use("/users", usersRoutes);
 app.use("/campgrounds", campgroundRoutes);
 //listen to port
 app.listen(PORT, IP, () => {

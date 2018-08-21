@@ -68,7 +68,7 @@ footer {
   left: 0;
   right: 0;
   height: 3.5rem;
-  background: #2C3E50;
+  background: transparent;
 }
 footer .row {
   line-height: 3.5rem;

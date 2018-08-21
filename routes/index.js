@@ -50,7 +50,11 @@ router.get('/loginPage', (req, res) => {
 router.post('/login', passport.authenticate("local", 
 {
   successRedirect: "/campgrounds", 
-  failureRedirect: "/register"}) ,(req, res) => {
+  failureRedirect: "/register",
+  failureFlash : "User doesn't exist. Please create an account"
+}),
+  (req, res) => {
+    req.flash("error", )
 });
 
 //Log out
@@ -77,5 +81,9 @@ router.get('/users/:id', (req, res) => {
     });
   });
 });
+//user edit
+
+//user delete
+
 
 module.exports = router;

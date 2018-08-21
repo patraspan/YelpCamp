@@ -2,30 +2,35 @@
     <div class="container">
         <h1 class="text-center mb-4">Create a New Campgroud</h1>
         <div>
-            <form class="ml-auto mr-auto" style="width: 50%" action="/campgrounds" method="POST">
+            <form class="ml-auto mr-auto" style="width: 50%" action="/campgrounds" method="POST" enctype="multipart/form-data">
                 <div class="form-group floating-label-form-group controls">
                     <label>Camp name</label>
-                    <input type="text" name="name" class="form-control" placeholder="Campground name" required data-validation-required-message="Please enter Camp title.">
+                    <input type="text" name="campground[name]" class="form-control" placeholder="Campground name" required data-validation-required-message="Please enter Camp title.">
                     <p class="help-block text-danger"></p>
                 </div>
+                <!--<div class="form-group floating-label-form-group controls">
+                    <label>Image</label>
+                    <input type="file" name="image" class="form-control" accept="image/*" placeholder="image" required>
+                    <p class="help-block text-danger"></p>
+                </div>-->
                 <div class="form-group floating-label-form-group controls">
                     <label>Image</label>
-                    <input type="text" name="image" class="form-control" placeholder="image" required data-validation-required-message="Please enter Camp title.">
+                    <input type="text" name="image" class="form-control"  placeholder="image">
                     <p class="help-block text-danger"></p>
                 </div>
                 <div class="form-group floating-label-form-group controls">
                     <label>Price</label>
-                    <input type="number" name="price" class="form-control" placeholder="price" min="0.01" step="0.01" required data-validation-required-message="Please enter Camp title.">
+                    <input type="number" name="campground[price]" class="form-control" placeholder="price" min="0.01" step="0.01" required data-validation-required-message="Please enter price.">
                     <p class="help-block text-danger"></p>
                 </div>
                 <div class="form-group">
                     <label for="location">Location</label>
-                    <input class="form-control" type="text" name="location" placeholder="Yosemite National Park, CA">
+                    <input class="form-control" name="campground[location]" type="text" placeholder="Yosemite National Park, CA">
                 </div>
                 <div class="control-group">
                     <div class="form-group floating-label-form-group controls">
                         <label>Description</label>
-                        <textarea cols="30" rows="5" class="form-control" placeholder="Description" name="description" id="description" required
+                        <textarea cols="30" name="campground[description]" rows="5" class="form-control" placeholder="Description"  required
                             data-validation-required-message="Please enter a content."></textarea>
                         <p class="help-block text-danger"></p>
                     </div>
