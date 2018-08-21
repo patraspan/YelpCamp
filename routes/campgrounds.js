@@ -67,48 +67,77 @@ router.get("/", (req, res) => {
   }
 
 });
-
-//CREATE - add new campground to DB
+// CREATE - add new camp
 router.post("/", middleware.isLoggedIn, (req, res) => {
- // get data from form and add to campgrounds array
- var campground = req.campground;
- var name = req.body.name;
- var image = req.body.image;
- var description = req.body.description;
- var author = {
-   id: req.user._id,
-   username: req.user.username
- }
-console.log(campground, image, name, description, author);
-    // geocoder.geocode(req.body.location, (err, data) => {
-    //   if (err || !data.length) {
-    //     req.flash('error', 'Invalid address');
-    //     return res.redirect('back');
-    //   }
-    //   var lat = data[0].latitude;
-    //   var lng = data[0].longitude;
-    //   var location = data[0].formattedAddress;
+  //get data from FORM and add to campgrouds array
+  const name = req.body.name;
+  const image = req.body.image;
+  const desc = req.body.description;
+  const author = {
+    id: req.user._id,
+    username: req.user.username
+  }
+  const newCampground = {
+      name,
+      image,
+      description: desc,
+      author
+  };
+  //Create new campground and save to db
+  Campground.create(newCampground, (err, newlyCreated) => {
+      if (err) {
+          console.log(err);
+      }
+      console.log(newlyCreated);
+      //redirect back to campgrounds
+      res.redirect("/campgrounds")
+  });
+})
+
+
+
+
+// //CREATE - add new campground to DB
+// router.post("/", middleware.isLoggedIn, (req, res) => {
+//  // get data from form and add to campgrounds array
+//  var campground = req.campground;
+//  var name = req.body.name;
+//  var image = req.body.image;
+//  var description = req.body.description;
+//  var author = {
+//    id: req.user._id,
+//    username: req.user.username
+//  }
+// console.log(campground, image, name, description, author);
+//     // geocoder.geocode(req.body.location, (err, data) => {
+//     //   if (err || !data.length) {
+//     //     req.flash('error', 'Invalid address');
+//     //     return res.redirect('back');
+//     //   }
+//     //   var lat = data[0].latitude;
+//     //   var lng = data[0].longitude;
+//     //   var location = data[0].formattedAddress;
       
-      var newCampground = {
-        name,
-        image,
-        description,
-        author,
-        // location,
-        // lat,
-        // lng
-      };
-      // Create a new campground and save to DB
-      Campground.create(newCampground, (err, campground) => {
-        if (err) {
-          req.flash('error', err.message);
-          return res.redirect('back');
-        } else {
-          res.redirect('/campgrounds/' + campground.id);
-        }
-      });
-    });
-  // });
+//       var newCampground = {
+//         name,
+//         image,
+//         description,
+//         author,
+//         // location,
+//         // lat,
+//         // lng
+//       };
+//       // Create a new campground and save to DB
+//       Campground.create(newCampground, (err, campground) => {
+//         if (err) {
+//           req.flash('error', err.message);
+//           return res.redirect('back');
+//         } else {
+//           res.redirect('/campgrounds/' + campground.id);
+//         }
+//       });
+//     });
+//   // });
 
 //NEW - show form to create camp
 router.get("/new", middleware.isLoggedIn, (req, res) => {
