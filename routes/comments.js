@@ -36,7 +36,6 @@ router.post('/', middleware.isLoggedIn, (req, res) => {
                       req.flash("success", "Successfully added comment")
                       res.redirect('/campgrounds/'+ campground._id);
                   }
-                  
               })
           }
           
