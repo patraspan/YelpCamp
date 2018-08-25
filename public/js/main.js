@@ -41,4 +41,10 @@
 // $('#sendMessageButton').click(function() {
 //   $('.content').html($('textarea').val().replace(/\n/g, '<br>'));
 // });
+$('.loginButton').on('click', ()=> {
+  console.log('clik');
+$("#LoginModal").modal("show");
+})
+
+
 })(jQuery); // End of use strict

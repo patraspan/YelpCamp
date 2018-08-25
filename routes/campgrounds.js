@@ -1,5 +1,5 @@
 const express = require('express');
-let router = express.Router();
+const router = express.Router();
 const Campground = require('../models/campground');
 const middleware = require('../middleware');
 const NodeGeocoder = require('node-geocoder');

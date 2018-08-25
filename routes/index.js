@@ -37,11 +37,7 @@ router.post('/register', (req, res) => {
      })
   })
 });
-//login form
-router.get('/login', (req, res) => {
-  res.render("login");
-  
-});
+
 router.get('/loginPage', (req, res) => {
   res.render('loginPage');
 });
@@ -51,11 +47,9 @@ router.post('/login', passport.authenticate("local",
 {
   successRedirect: "/campgrounds", 
   failureRedirect: "/register",
+  successFlash: "Welcome back!",
   failureFlash : "User doesn't exist. Please create an account"
-}),
-  (req, res) => {
-    req.flash("error", )
-});
+}));
 
 //Log out
 router.get('/logout', (req, res) => {

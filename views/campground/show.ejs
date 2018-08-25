@@ -41,85 +41,11 @@
                         <% } %>
                     </div>
                 </div>
-                <ul class="nav nav-tabs mt-4" id="myTab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Comments</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
-                    </li>
-                </ul>
-                <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <figure class="mt-4">
-                        <% if (currentUser) {%>
-                            <form action="/campgrounds/<%= campground._id %>/comments" method="POST">
-                                <div class="form-row">
-                                    <div class="form-group col-md mb-2">
-                                        <label>Leave comment as <em class="text-info"><%= currentUser.username %></em></label>
-                                        <textarea cols="30" rows="3" class="form-control pre" placeholder="Leave comment here..." name="comment[text]" id="text" required
-                                            data-validation-required-message="Please enter a content."></textarea>
-                                        
-                                        <button class="btn btn-success btn-block mt-2">SUBMIT</button>
-                                        
-                                    </div>
-                                </div>
-                            </form>
-                            <% } else { %>
-                            <p> <a href="/register">Create new account</a> or <a data-toggle="modal" data-target="#LoginModal" href="#LoginModal">Log in</a>  to leave a comment</p>
-                            <%  } %>
-                            </figure>
-                            
-                    <% campground.comments.forEach((comment) => { %>
-                        <div class="card bg-light card-body mb-2">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <span class="lead">
-                                        <strong>
-                                            <%= comment.author.username %>
-                                        </strong>
-                                    </span>
-                                    <span class="text-muted small"><%= moment(comment.createdAt).fromNow() %></span>
-                                    <p class="mt-2">
-                                        <%= comment.text %>
-                                    </p>
-                                    <% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin) { %>
-                                    <a 
-                                    class="btn btn-outline-warning btn-sm" 
-                                    href="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>/edit">Edit</a>
-                                    <form style="display: inline;" action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>/?_method=DELETE" method="POST">
-                                    <button class="btn btn-outline-danger btn-sm">Delete</button>
-                                    </form>
-                                    <% } %>
-                                    
-                                </div>
-
-                            </div>
-                        </div>
-                        <% })  %>
-                        
-                    </div>
-                    
-                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                            <p>Lorem ipsum dolor sit amet, mel ei justo torquatos reprehendunt, vis ei sint dicunt. Te cum munere sanctus sensibus. Ut eum probo definiebas disputando, equidem minimum ius ne, qui dicunt eloquentiam ad. Nobis suscipiantur eum ex, graeco timeam impetus an pro. Vim verear contentiones no, ne qui sanctus percipit honestatis. Te eos case tincidunt, sea te altera voluptua. Est ex accusam iracundia.
-
-                            Eu dico deserunt cum. Has an iracundia reformidans. Tritani corpora eos in. Has vocent equidem posidonium ut, prompta feugait oportere te cum, per cu everti verterem gloriatur. Denique copiosae ut vis, eos et nisl persequeris appellantur.
-                            
-                            Cum ea ferri fuisset liberavisse, ad pro possit blandit. Laudem impedit reprehendunt ex mei, libris eleifend in quo. Eruditi verterem ex vim, est ornatus similique accommodare an, justo iusto placerat eu nec. Tempor accumsan eligendi an sit.
-                            
-                            Iusto tempor duo in, natum persecuti definiebas cu pri. Est id augue aliquid repudiare, id nominati senserit repudiare eum. Tale wisi movet ad cum. Sit vidisse assueverit et. Ei tollit referrentur ius, nam elit omnium tamquam ex, simul iracundia in pri.</p>
-                            </div>
-                            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
-                </div>
-            </div>
+                <% include comments %>
         </div>
-        <hr>
-        <h6 class="text-center mb-4">Add new comment to
-            <%= campground.name %>
-        </h6>
+        
+        
+        
         <div>
 
         </div>

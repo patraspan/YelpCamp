@@ -4,9 +4,7 @@
 #delete-form {
   display: inline !important; 
 }
-.pre {
-  white-space: pre-line; 
-}
+
 footer {
   z-index: 3;
   position: relative;

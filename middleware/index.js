@@ -51,4 +51,12 @@ middlewareObj.isLoggedIn = (req, res, next) => {
   req.flash("error", "You need to be logged in to do that");
    res.redirect('/loginPage');
 }
+middlewareObj.notEmpty = (req, res, next) => {
+    Comment.findById(req.params.text, (err, foundComment) => {
+      if (err || foundComment == '') {
+        req.flash("error", "Comment not found")
+      }  next()
+    })
+  };
+  
 module.exports = middlewareObj;
