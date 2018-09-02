@@ -23,7 +23,7 @@ const PORT = 5000 || process.env.PORT,
 
 //Mongoose connection
 
-mongoose.connect("mongodb://localhost/yelp_camp_v3");
+mongoose.connect("mongodb://localhost/yelp_camp_v4");
 app.use(bodyParser.urlencoded({
     extended: true
 }));

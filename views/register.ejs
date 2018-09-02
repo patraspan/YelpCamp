@@ -2,7 +2,7 @@
 
   <form class="mx-auto card card-body mt-4" style="width: 500px" action="/register" method="POST">
     <fieldset>
-      <legend>Sign in</legend>
+      <legend class="display-4 text-center mb-4">Sign in</legend>
       <div class="form-group row">
         <label for="name" class="col-sm-3 col-form-label">Username</label>
         <div class="col-sm-9">
@@ -16,12 +16,7 @@
         </div>
       </div>
       <hr>
-      <div class="form-group row">
-        <label class="col-sm-3 col-form-label" for="password">admin Code</label>
-        <div class="col-sm-9">
-          <input type="password" class="form-control" name="adminCode" placeholder="code">
-        </div>
-      </div>
+      
       <div class="form-group row">
         <label class="col-sm-3 col-form-label" for="firstName">First Name</label>
         <div class="col-sm-9">
@@ -46,12 +41,31 @@
           <input type="text" class="form-control" name="avatar" placeholder="Avatar link">
         </div>
       </div>
-
+      <hr class="my-4">
+      <div class="pretty p-icon p-round p-smooth mb-3">
+        <input type="checkbox" href="#collapseExample" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample"/>
+        <div class="state p-success">
+            <i class="icon fa fa-check"></i>
+            <label>Admin Code if You have one</label>
+        </div>
+    </div>
+    
+    <div class="collapse mb-3" id="collapseExample">
+      <div class="card card-body py-3 text-white bg-secondary">
+        <div class="form-group row mb-0">
+          <label class="col-sm-3 col-form-label" for="password">Admin Code</label>
+          <div class="col-sm-9">
+            <input type="password" class="form-control text-white bg-secondary" name="adminCode" placeholder="secret code...">
+          </div>
+        </div>
+      </div>
+    </div>
+    
 
       </div>
       <div class="text-center">
-        <button type="submit" class="btn btn-primary">Sign Up</button>
-        <p class="small text-right">Already have an account?
+        <button type="submit" class="btn btn-lg btn-primary mt-3">Sign Up</button>
+        <p class="small text-right mt-4">Already have an account?
           <a href="/loginPage">Log in!</a>
         </p>
       </div>

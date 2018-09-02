@@ -1,4 +1,4 @@
-(function($) {
+$( document ).ready(function() {
   "use strict"; // Start of use strict
 
   // Floating label headings for the contact form
@@ -46,5 +46,8 @@ $('.loginButton').on('click', ()=> {
 $("#LoginModal").modal("show");
 })
 
-
-})(jQuery); // End of use strict
+$('.custom-file-input').on('change',function(){
+  var fileName = $(this).val().split('\\').pop();
+  $(this).next('.custom-file-label').addClass("selected").html(fileName);
+})
+});

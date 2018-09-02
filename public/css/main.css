@@ -1,3 +1,4 @@
+
 .main {
   min-height: 100vh;
 }
@@ -27,4 +28,12 @@ footer .row a {
 #map {
   height: 400px;
   width: 100%;
+}
+
+.custom-file-input ~ .custom-file-label::after {
+  content: "Button Text";
+}
+
+.custom-file-control.selected:lang(en)::after {
+  content: "" !important;
 }
