@@ -58,26 +58,6 @@ router.get('/logout', (req, res) => {
    res.redirect('/campgrounds');
 });
 
-//User profile
-
-router.get('/users/:id', (req, res) => {
-  User.findById(req.params.id, (err, foundUser) => {
-    if (err) {
-       req.flash("error", "Something went wrong");
-       res.redirect('/campgrounds');
-    } 
-    Campground.find().where('author.id').equals(foundUser._id).exec((err, campgrounds) => {
-      if (err) {
-        req.flash("error", "Something went wrong");
-        res.redirect('/campgrounds');
-     } 
-     res.render("users/profile", {user: foundUser, campgrounds: campgrounds});
-    });
-  });
-});
-//user edit
-
-//user delete
 
 
 module.exports = router;

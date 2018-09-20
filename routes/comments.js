@@ -14,7 +14,7 @@ const {isLoggedIn, checkCommentOwnership, notEmpty} = middleware;
 
 //Comments creator
 
-router.post('/', isLoggedIn,notEmpty, (req, res) => {
+router.post('/', isLoggedIn, notEmpty, (req, res) => {
   // lokup camps using ID
       Campground.findById(req.params.id, (err, campground) => {
           if (err) {
@@ -29,6 +29,8 @@ router.post('/', isLoggedIn,notEmpty, (req, res) => {
                     //add username and id
                       comment.author.id = req.user._id;
                       comment.author.username = req.user.username;
+                      comment.author.avatar = req.user.avatar;
+                      console.log(comment.author.avatar);
                     //save comment
                       comment.save();
                       campground.comments.push(comment);

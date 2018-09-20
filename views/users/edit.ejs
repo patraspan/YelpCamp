@@ -49,7 +49,7 @@
       </div>
       <div class="text-center">
         <button type="submit" class="btn btn-success">Save changes</button>
-        <a href="/campgrounds" class="btn btn-outline-secondary"> GO BACK</a>
+        <a href="/users/<%= user._id %>" class="btn btn-outline-secondary"> GO BACK</a>
         <form style="display: inline;" action="/users/<%= user._id %>/?_method=DELETE" method="POST">
           <button class="btn btn-outline-danger btn-sm">Delete</button>
         </form>

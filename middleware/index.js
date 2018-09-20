@@ -1,5 +1,6 @@
 const Campground = require('../models/campground'),
-      Comment = require('../models/comment');
+      Comment = require('../models/comment'),
+      User = require('../models/user');
 
 
 let middlewareObj = {};
@@ -58,5 +59,15 @@ middlewareObj.notEmpty = (req, res, next) => {
       }  next()
     })
   };
+
   
+  //how to do middleware to check if current user is User
+  middlewareObj.isUser = (req, res, next) => {
+    User.findById(req.params.id, (err, foundUser) => {
+    if (foundUser.id.equals(req.user.id) || req.user.id.isAdmin) {
+      next()
+    }  
+    })
+  }
+
 module.exports = middlewareObj;

@@ -12,8 +12,8 @@ footer {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 3.5rem;
-  background: #2C3E50;
+  min-height: 3.5rem;
+  /* background: #2C3E50; */
 }
 footer .row {
   line-height: 3.5rem;
@@ -24,6 +24,12 @@ footer .row {
 footer .row a {
   font-size: 2rem;
 }
+/* EDIT CAMPGROUND */
+.nowrap {
+  overflow: hidden;
+}
+
+
 /* Google Maps */
 #map {
   height: 400px;
@@ -36,4 +42,32 @@ footer .row a {
 
 .custom-file-control.selected:lang(en)::after {
   content: "" !important;
+}
+textarea {
+  white-space: nowrap;
+}
+/* COMMENT SECTION */
+#commentSection .row .editButtons {
+  display: inline-block;
+  visibility: hidden;
+  opacity: 0;
+  transition: all ease-in 200ms;
+}
+#commentSection .row:hover .editButtons {
+  opacity: 1;
+  visibility: visible;
+}
+/* PROFILE PAGE */
+
+#profilePage img{
+  display: block;
+  max-width: 300px;
+  max-height: 300px;
+  object-fit: cover;
+  margin: 0 auto;
+}
+#personalInfo .form-group input {
+  padding: 0;
+  font-style: italic;
+  font-weight: 700;
 }

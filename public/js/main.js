@@ -37,10 +37,7 @@ $( document ).ready(function() {
         this.previousTop = currentTop;
       });
   }
-// // textarea
-// $('#sendMessageButton').click(function() {
-//   $('.content').html($('textarea').val().replace(/\n/g, '<br>'));
-// });
+//opening login modal
 $('.loginButton').on('click', ()=> {
   console.log('clik');
 $("#LoginModal").modal("show");
@@ -50,4 +47,26 @@ $('.custom-file-input').on('change',function(){
   var fileName = $(this).val().split('\\').pop();
   $(this).next('.custom-file-label').addClass("selected").html(fileName);
 })
+//adding active class to current page
+$(".navbar-nav a").filter(function(){
+  return this.href == location.href.replace(/#.*/, "");
+}).addClass("active");
+
+
+//focus in modal input
+$('#LoginModal').on('shown.bs.modal', () => {
+  setTimeout(() => {
+      $('#modalUsername').focus();
+  }, 100);
+})
+
+$(".summernote").summernote({
+  picture: false,
+  video: false,
+  placeholder: "Type your description here",
+  absize: 2,
+  height: 200
+})
+
+
 });

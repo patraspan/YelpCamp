@@ -3,9 +3,12 @@ const router = express.Router({mergeParams:true});
 const User = require('../models/user');
 const Campground = require('../models/campground');
 const middleware = require('../middleware');
+const {isLoggedIn, checkCampgroundOwnership} = middleware;
+
 //User profile
 
-router.get('/:id', (req, res) => {
+
+router.get('/:id', isLoggedIn, (req, res) => {
   User.findById(req.params.id, (err, foundUser) => {
     if (err) {
        req.flash("error", "Something went wrong");
@@ -21,7 +24,7 @@ router.get('/:id', (req, res) => {
   });
 });
 //EDIT USER ROUTE
-router.get('/:id/edit', (req, res) => {
+router.get('/:id/edit', middleware.isLoggedIn, (req, res) => {
   User.findById(req.params.id, (err, foundUser) => {
     res.render("users/edit", {
       user: foundUser
@@ -29,7 +32,7 @@ router.get('/:id/edit', (req, res) => {
   });
 });
   //UPDATE USER ROUTE
-router.put('/:id', (req, res) => {
+router.put('/:id', middleware.isLoggedIn, (req, res) => {
   console.log(req.body.user);
   User.findByIdAndUpdate(req.params.id, req.body.user, (err, updatedUser) => {
     if (err) {
@@ -42,7 +45,7 @@ router.put('/:id', (req, res) => {
 });
 
 //DELETE ROUTE
-router.delete('/:id', (req, res) => {
+router.delete('/:id', middleware.isLoggedIn, (req, res) => {
   User.findByIdAndRemove(req.params.id, (err) => {
     if (err) {
       req.flash("error", "Something went wrong");

@@ -54,10 +54,6 @@ app.use((req, res, next) => {
     next();
 });
 
-
-
-
-
 app.use(indexRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 app.use("/users", usersRoutes);
