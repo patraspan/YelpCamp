@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon index.js"
+    "server": "nodemon index.js -e ejs,js,css",
+    "browser-sync": "browser-sync start --files 'css/*.css'"
   },
   "author": "pk",
   "license": "ISC",
@@ -28,6 +29,10 @@
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^5.0.1",
     "password-validator": "^4.1.1",
-    "pretty-checkbox": "^3.0.3"
+    "pretty-checkbox": "^3.0.3",
+    "reload": "^2.3.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.24.7"
   }
 }

@@ -3,18 +3,9 @@
 
 <div class="container main">
     <div class="row mt-4 mb-4">
-        <div class="col-md-3">
-            <p class="lead">Yelp Camp</p>
-            <div class="list-group">
-                <li class="list-group-item"> Info 1</li>
-                <li class="list-group-item"> Info 2</li>
-                <li class="list-group-item"> Info 3</li>
-            </div>
-            <div id="map"></div>
-        </div>
         <div class="col-md-9">
-            <div class="card">
-                <img class="img-fluid" src="<%= campground.image %>" alt="">
+            <div class="card outer">
+                <img class="img-fluid inner" src="<%= campground.image %>" alt="">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-9">
@@ -49,40 +40,86 @@
             </div>
             <% include comments %>
         </div>
-        <div>
+        <div class="col-md-3">
+        <p class="lead text-right">Additional Info</p>
+            <div class="accordion my-4" id="myAccordion">
+                <div class="card">
+                    <div class="card-header btn btn-secondary" id="headingOne" data-toggle="collapse" data-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                        <h5 class="my-2">Info #1</h5>
+                    </div>
+
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
+                            squid.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header btn btn-secondary" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                        <h5 class="my-2">Info #1</h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body">
+                            3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
+                            nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
+                            single-origin coffee nulla assumenda shoreditch et.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                <div class="card-header btn btn-secondary" id="headingThree" data-toggle="collapse" data-target="#collapseThree"
+                aria-expanded="true" aria-controls="collapseThree">
+                    <h5 class="my-2">Info #1</h5>
+                </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                        <div class="card-body">
+                            Raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="map"></div>
         </div>
+
 
     </div>
 </div>
 
-    <script>
-  function initMap() {
-    var lat = <%= campground.lat %>;
-    var lng = <%= campground.lng %>;
-    var center = {lat: lat, lng: lng };
-    var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 12,
-        center: center,
-        scrollwheel: false
-    });
-    var contentString = `
+<script>
+    function initMap() {
+        var lat = <%= campground.lat %>;
+        var lng = <%= campground.lng %>;
+        var center = {
+            lat: lat,
+            lng: lng
+        };
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 12,
+            center: center,
+            scrollwheel: false
+        });
+        var contentString =
+            `
       <strong><%= campground.name %><br />
       <%= campground.location %></strong>
       <p><%= campground.description %></p>
     `
-    var infowindow = new google.maps.InfoWindow({
-      content: contentString
-    });
-    var marker = new google.maps.Marker({
-        position: center,
-        map: map
-    });
-    marker.addListener('click', function() {
-      infowindow.open(map, marker);
-    });
-  }
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+        var marker = new google.maps.Marker({
+            position: center,
+            map: map
+        });
+        marker.addListener('click', function () {
+            infowindow.open(map, marker);
+        });
+    }
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDx2sD4qRIGaDEOY0hlV_uY8CSMwvhYIc&callback=initMap"></script>
-  
+
 
 <% include ../partials/footer %>

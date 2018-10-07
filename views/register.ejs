@@ -1,76 +1,81 @@
 <% include ./partials/header %>
-
-  <form class="mx-auto card card-body mt-4" style="width: 500px" action="/register" method="POST">
-    <fieldset>
-      <legend class="display-4 text-center mb-4">Sign in</legend>
-      <div class="form-group row">
-        <label for="name" class="col-sm-3 col-form-label">Username</label>
-        <div class="col-sm-9">
-          <input type="text" class="form-control" name="username" placeholder="Username">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-sm-3 col-form-label" for="password">Password</label>
-        <div class="col-sm-9">
-          <input type="password" class="form-control" name="password" placeholder="Password">
-        </div>
-      </div>
-      <hr>
-      
-      <div class="form-group row">
-        <label class="col-sm-3 col-form-label" for="firstName">First Name</label>
-        <div class="col-sm-9">
-          <input type="text" class="form-control" name="firstName" placeholder="First Name">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-sm-3 col-form-label" for="lastName">Last Name</label>
-        <div class="col-sm-9">
-          <input type="text" class="form-control" name="lastName" placeholder="Last Name">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-sm-3 col-form-label" for="email">Email</label>
-        <div class="col-sm-9">
-          <input type="email" class="form-control" name="email" placeholder="Email">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-sm-3 col-form-label" for="avatar">Avatar</label>
-        <div class="col-sm-9">
-          <input type="text" class="form-control" name="avatar" placeholder="Avatar link">
-        </div>
-      </div>
-      <hr class="my-4">
-      <div class="pretty p-icon p-round p-smooth mb-3">
-        <input type="checkbox" href="#collapseExample" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample"/>
-        <div class="state p-success">
-            <i class="icon fa fa-check"></i>
-            <label>Admin Code if You have one</label>
-        </div>
-    </div>
-    
-    <div class="collapse mb-3" id="collapseExample">
-      <div class="card card-body py-3 text-white bg-secondary">
-        <div class="form-group row mb-0">
-          <label class="col-sm-3 col-form-label" for="password">Admin Code</label>
+<div class="container">
+  <div class="row">
+    <form class="mx-auto card card-body mt-4 col-sm-6" style="width: 500px" action="/register" method="POST">
+      <fieldset>
+        <legend class="display-4 text-center mb-4">Sign in</legend>
+        <div class="form-group row">
+          <label for="name" class="col-sm-3 col-form-label">Username</label>
           <div class="col-sm-9">
-            <input type="password" class="form-control text-white bg-secondary" name="adminCode" placeholder="secret code...">
+            <input type="text" class="form-control" name="username" placeholder="Username">
           </div>
         </div>
-      </div>
-    </div>
-    
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label" for="password">Password</label>
+          <div class="col-sm-9">
+            <input type="password" class="form-control" name="password" placeholder="Password">
+          </div>
+        </div>
+        <hr>
 
-      </div>
-      <div class="text-center">
-        <button type="submit" class="btn btn-lg btn-primary mt-3">Sign Up</button>
-        <p class="small text-right mt-4">Already have an account?
-          <a href="/loginPage">Log in!</a>
-        </p>
-      </div>
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label" for="firstName">First Name</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" name="firstName" placeholder="First Name">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label" for="lastName">Last Name</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" name="lastName" placeholder="Last Name">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label" for="email">Email</label>
+          <div class="col-sm-9">
+            <input type="email" class="form-control" name="email" placeholder="Email">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label" for="avatar">Avatar</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" name="avatar" placeholder="Avatar link">
+          </div>
+        </div>
+        <hr class="my-4">
+        <div class="pretty p-icon p-round p-smooth mb-3">
+          <input type="checkbox" href="#collapseExample" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" />
+          <div class="state p-success">
+            <i class="icon fa fa-check"></i>
+            <label>Admin Code if You have one</label>
+          </div>
+        </div>
 
-    </fieldset>
+        <div class="collapse mb-3" id="collapseExample">
+          <div class="card card-body py-3 text-white bg-primary">
+            <div class="form-group row mb-0">
+              <label class="col-sm-3 col-form-label" for="password">Admin Code</label>
+              <div class="col-sm-9">
+                <input type="password" class="form-control text-white bg-secondary" name="adminCode" placeholder="secret code...">
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+  </div>
+  <div class="text-center">
+    <button type="submit" class="btn btn-lg btn-primary mt-3">Sign Up</button>
+    <p class="small text-right mt-4">Already have an account?
+      <a href="/loginPage">Log in!</a>
+    </p>
+  </div>
+
+  </fieldset>
   </form>
+</div>
+</div>
 
-  <% include ./partials/footer %>
+
+
+<% include ./partials/footer %>

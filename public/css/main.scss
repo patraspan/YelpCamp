@@ -1,0 +1,254 @@
+
+:root {
+  overflow-x: hidden;
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #d9534f;
+  --orange: #fd7e14;
+  --yellow: #f0ad4e;
+  --green: #4BBF73;
+  --teal: #20c997;
+  --cyan: #1F9BCF;
+  --white: #fff;
+  --gray: #919aa1;
+  --gray-dark: #343a40;
+  --primary: #1a1a1a;
+  --secondary: #fff;
+  --success: #4BBF73;
+  --info: #1F9BCF;
+  --warning: #f0ad4e;
+  --danger: #d9534f;
+  --light: #fff;
+  --dark: #343a40;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --font-family-sans-serif: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+body {
+  min-height: 100vh;
+}
+.main {
+  min-height: 100vh;
+}
+#delete-form {
+  display: inline !important; 
+}
+//alert messages
+.alert-wrapper {
+  position: absolute;
+  top: 7rem;
+  left: 0;
+  right: 0;
+  z-index: 5;
+}
+//NAVBAR
+.navbar-brand {
+  img {
+    width: 30px;
+  }
+}
+
+//jumbotron of CAMPGROUNDS Section
+
+#campgrounds-hero {
+  overflow: hidden;
+  position: relative;
+  min-height: 40vh;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  background-color: #F6F6F8;
+  margin-bottom: 2rem;
+  .camping-tent-image{
+    position: absolute;
+    opacity: 0.05;
+    // height: 100px;
+    max-width: 500px;
+    width: 40vh;
+    display: block;
+    bottom: 0;
+    left: 12%;
+    transform-origin: 0 50% 0;
+    transform: translateX(-10%);
+    transition: all 3s linear;
+  }
+  .tent-image {
+    content: url('../images/tent.svg');
+    position: absolute;
+    opacity: 0.04;
+    // height: 100px;
+    max-width: 500px;
+    width: 40vh;
+    display: block;
+    bottom: 0;
+    left: 53%;
+    transform-origin: 0 50% 0;
+    transform: translateX(50%);
+    transition: all 3s linear;
+    // z-index: 10;
+  }
+  &:hover {
+    .tent-image {
+      transform: translate(54%,-2%) scale(1.03);
+      opacity: 0.03;
+    }
+    .camping-tent-image {
+      transform: translate(-16%,-2%) scale(1.03);
+      opacity: 0.03;
+    }
+  }
+  .fa-plus {
+    margin-left: 20px;
+  }
+}
+
+// area under jumbotron - SHOWPAGE
+#campgrounds-showpage {
+  //search form
+  .form {
+    position: relative;
+    margin: 2rem auto;
+    .form-group {
+      margin: 0;
+    }
+    .search-input {
+      opacity: 0.3;
+      height: 52px;
+      margin: 0;
+      background-color: white !important;
+      outline-style: none;
+      outline: none;
+      overflow: hidden;
+      border-bottom: 2px solid rgba(246, 246, 248, 0.6);
+      transition: all 0.8s ease;
+      position: relative;
+      
+      &:focus {
+        opacity: 1;
+        // border: none;
+        border-color: transparent;
+        box-shadow: none;
+        border-bottom: 2px solid black;
+        
+      }
+    }
+    
+    .search-btn {
+      position: absolute;
+      top: 10%;
+      right: -50px;
+      // visibility: hidden;
+      // transform: scaleX(0)
+      transition: opacity 1ms ease-in;
+    }
+    .hidden {
+      opacity: 0;
+    }
+    .visible{
+      opacity: 1;
+      // visibility: visible;
+      // transform: scaleX(1);
+      // position: absolute;
+      //     top: 10%;
+      //     right: -50px;
+    }
+  }
+  .flex {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+  }
+  .campgrounds-results {
+    min-height: 30vh;
+     
+  }
+  .card-img-top {
+    min-height: 170px;
+    height: 70%;
+    object-fit: cover;
+  }
+}
+
+//Detailed page of campground
+.main {
+  .img-fluid {
+    object-fit: cover;
+    min-height: 500px;
+  }
+}
+// Footer section
+footer {
+  z-index: 3;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  min-height: 3.5rem;
+  /* background: #2C3E50; */
+}
+
+footer .row {
+  line-height: 3.5rem;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+footer .row a {
+  font-size: 2rem;
+}
+/* EDIT CAMPGROUND */
+.nowrap {
+  overflow: hidden;
+}
+
+
+/* COMMENT SECTION */
+#commentSection .row .editButtons {
+  display: inline-block;
+  visibility: hidden;
+  opacity: 0;
+  transition: all ease-in 200ms;
+}
+
+#commentSection .row:hover .editButtons {
+  opacity: 1;
+  visibility: visible;
+}
+/* PROFILE PAGE */
+
+#profilePage img{
+  display: block;
+  max-width: 300px;
+  max-height: 300px;
+  object-fit: cover;
+  margin: 0 auto;
+}
+#personalInfo .form-group input {
+  padding: 0;
+  font-style: italic;
+  font-weight: 700;
+}
+
+/* Google Maps */
+#map {
+  min-height: 350px;
+  width: 100%;
+}
+
+.custom-file-input ~ .custom-file-label::after {
+  content: "Button Text";
+}
+
+.custom-file-control.selected:lang(en)::after {
+  content: "" !important;
+}
+textarea {
+  white-space: nowrap;
+}

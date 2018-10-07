@@ -3,6 +3,7 @@ const router = express.Router();
 const Campground = require('../models/campground');
 const middleware = require('../middleware');
 const NodeGeocoder = require('node-geocoder');
+
 var multer = require('multer');
 var storage = multer.diskStorage({
   filename: function(req, file, callback) {
@@ -97,7 +98,7 @@ router.post("/", middleware.isLoggedIn, upload.single('image'), (req, res) => {
       username: req.user.username
       }
 
-console.log(name, description, author, avatar);
+console.log(name, description, author);
 
 cloudinary.v2.uploader.upload(req.file.path, function(err, result) {
   if(err) {

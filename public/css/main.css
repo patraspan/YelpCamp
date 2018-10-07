@@ -1,9 +1,194 @@
+:root {
+  overflow-x: hidden;
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #d9534f;
+  --orange: #fd7e14;
+  --yellow: #f0ad4e;
+  --green: #4BBF73;
+  --teal: #20c997;
+  --cyan: #1F9BCF;
+  --white: #fff;
+  --gray: #919aa1;
+  --gray-dark: #343a40;
+  --primary: #1a1a1a;
+  --secondary: #fff;
+  --success: #4BBF73;
+  --info: #1F9BCF;
+  --warning: #f0ad4e;
+  --danger: #d9534f;
+  --light: #fff;
+  --dark: #343a40;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --font-family-sans-serif: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+body {
+  min-height: 100vh;
+}
 
 .main {
   min-height: 100vh;
 }
+
 #delete-form {
-  display: inline !important; 
+  display: inline !important;
+}
+
+.alert-wrapper {
+  position: absolute;
+  top: 7rem;
+  left: 0;
+  right: 0;
+  z-index: 5;
+}
+
+.navbar-brand img {
+  width: 30px;
+}
+
+#campgrounds-hero {
+  overflow: hidden;
+  position: relative;
+  min-height: 40vh;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  background-color: #F6F6F8;
+  margin-bottom: 2rem;
+}
+
+#campgrounds-hero .camping-tent-image {
+  position: absolute;
+  opacity: 0.05;
+  max-width: 500px;
+  width: 40vh;
+  display: block;
+  bottom: 0;
+  left: 12%;
+  -webkit-transform-origin: 0 50% 0;
+          transform-origin: 0 50% 0;
+  -webkit-transform: translateX(-10%);
+          transform: translateX(-10%);
+  -webkit-transition: all 3s linear;
+  transition: all 3s linear;
+}
+
+#campgrounds-hero .tent-image {
+  content: url("../images/tent.svg");
+  position: absolute;
+  opacity: 0.04;
+  max-width: 500px;
+  width: 40vh;
+  display: block;
+  bottom: 0;
+  left: 53%;
+  -webkit-transform-origin: 0 50% 0;
+          transform-origin: 0 50% 0;
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
+  -webkit-transition: all 3s linear;
+  transition: all 3s linear;
+}
+
+#campgrounds-hero:hover .tent-image {
+  -webkit-transform: translate(54%, -2%) scale(1.03);
+          transform: translate(54%, -2%) scale(1.03);
+  opacity: 0.03;
+}
+
+#campgrounds-hero:hover .camping-tent-image {
+  -webkit-transform: translate(-16%, -2%) scale(1.03);
+          transform: translate(-16%, -2%) scale(1.03);
+  opacity: 0.03;
+}
+
+#campgrounds-hero .fa-plus {
+  margin-left: 20px;
+}
+
+#campgrounds-showpage .form {
+  position: relative;
+  margin: 2rem auto;
+}
+
+#campgrounds-showpage .form .form-group {
+  margin: 0;
+}
+
+#campgrounds-showpage .form .search-input {
+  opacity: 0.3;
+  height: 52px;
+  margin: 0;
+  background-color: white !important;
+  outline-style: none;
+  outline: none;
+  overflow: hidden;
+  border-bottom: 2px solid rgba(246, 246, 248, 0.6);
+  -webkit-transition: all 0.8s ease;
+  transition: all 0.8s ease;
+  position: relative;
+}
+
+#campgrounds-showpage .form .search-input:focus {
+  opacity: 1;
+  border-color: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-bottom: 2px solid black;
+}
+
+#campgrounds-showpage .form .search-btn {
+  position: absolute;
+  top: 10%;
+  right: -50px;
+  -webkit-transition: opacity 1ms ease-in;
+  transition: opacity 1ms ease-in;
+}
+
+#campgrounds-showpage .form .hidden {
+  opacity: 0;
+}
+
+#campgrounds-showpage .form .visible {
+  opacity: 1;
+}
+
+#campgrounds-showpage .flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#campgrounds-showpage .campgrounds-results {
+  min-height: 30vh;
+}
+
+#campgrounds-showpage .card-img-top {
+  min-height: 170px;
+  height: 70%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.main .img-fluid {
+  -o-object-fit: cover;
+     object-fit: cover;
+  min-height: 500px;
 }
 
 footer {
@@ -15,24 +200,61 @@ footer {
   min-height: 3.5rem;
   /* background: #2C3E50; */
 }
+
 footer .row {
   line-height: 3.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
 }
+
 footer .row a {
   font-size: 2rem;
 }
+
 /* EDIT CAMPGROUND */
 .nowrap {
   overflow: hidden;
 }
 
+/* COMMENT SECTION */
+#commentSection .row .editButtons {
+  display: inline-block;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all ease-in 200ms;
+  transition: all ease-in 200ms;
+}
+
+#commentSection .row:hover .editButtons {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* PROFILE PAGE */
+#profilePage img {
+  display: block;
+  max-width: 300px;
+  max-height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 0 auto;
+}
+
+#personalInfo .form-group input {
+  padding: 0;
+  font-style: italic;
+  font-weight: 700;
+}
 
 /* Google Maps */
 #map {
-  height: 400px;
+  min-height: 350px;
   width: 100%;
 }
 
@@ -43,31 +265,8 @@ footer .row a {
 .custom-file-control.selected:lang(en)::after {
   content: "" !important;
 }
+
 textarea {
   white-space: nowrap;
 }
-/* COMMENT SECTION */
-#commentSection .row .editButtons {
-  display: inline-block;
-  visibility: hidden;
-  opacity: 0;
-  transition: all ease-in 200ms;
-}
-#commentSection .row:hover .editButtons {
-  opacity: 1;
-  visibility: visible;
-}
-/* PROFILE PAGE */
-
-#profilePage img{
-  display: block;
-  max-width: 300px;
-  max-height: 300px;
-  object-fit: cover;
-  margin: 0 auto;
-}
-#personalInfo .form-group input {
-  padding: 0;
-  font-style: italic;
-  font-weight: 700;
-}
+/*# sourceMappingURL=main.css.map */
