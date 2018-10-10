@@ -3,19 +3,19 @@
 
 <div class="container main">
     <div class="row mt-4 mb-4">
-        <div class="col-md-9">
+        <div class="col-lg-9 col-md-12">
             <div class="card outer">
                 <img class="img-fluid inner" src="<%= campground.image %>" alt="">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-sm-9">
+                        <div class="col-lg-9">
                             <h5 class="card-title text-left">
                                 <a href="#">
                                     <%= campground.name %>
                                 </a>
                             </h5>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-lg-3">
                             <h5 class="card-title text-right"> price $
                                 <%= campground.price %>/night</h5>
                         </div>
@@ -40,7 +40,7 @@
             </div>
             <% include comments %>
         </div>
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-12">
         <p class="lead text-right">Additional Info</p>
             <div class="accordion my-4" id="myAccordion">
                 <div class="card">

@@ -50,7 +50,21 @@ $(document).ready(function () {
     setTimeout(()=> {alertMsg.fadeOut(1000)}, 2200);
   }
 
-  
+$('.toptop a').click(() => {
+  e.preventDefault();
+  $('html, body').animate({
+      scrollTop: $(this).top
+  }, 1500);
+  return false;
+});
+
+$(window).scroll(function () {
+  if ($(this).scrollTop() > 50) {
+      $('.totop a').fadeIn();
+  } else {
+      $('.totop a').fadeOut();
+  }
+});
 
   //adding summernote editor to textarea
   $(".summernote").summernote({

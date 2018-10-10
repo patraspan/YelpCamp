@@ -49,8 +49,8 @@ Comments
 
     <!--Display comments by looping through them-->
     <% campground.comments.forEach(function(comment) { %>
-        <div class="row">
-            <div class="col-md-11">
+        <div class="row ">
+            <div class="load-content col-md-12">
                 <strong>
                     <% if (currentUser && currentUser._id.equals(comment.author.id)) { %>
                         <!--If the current user owns the comment, change the color of the user icon-->
@@ -113,3 +113,4 @@ Comments
         <% }) %>
             </div>
             <!--COMMENT SECTION END-->
+        

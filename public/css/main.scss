@@ -58,52 +58,51 @@ body {
 //jumbotron of CAMPGROUNDS Section
 
 #campgrounds-hero {
+  z-index: 0;
   overflow: hidden;
+  position: relative;
   min-height: 40vh;
   padding-top: 6rem;
   padding-bottom: 6rem;
   background-color: #F6F6F8;
   margin-bottom: 2rem;
-  .container {
-    position: relative;
-    .camping-tent-image{
-      position: absolute;
-      opacity: 0.05;
-      // height: 100px;
-      max-width: 500px;
-      width: 40vh;
-      display: block;
-      bottom: 0;
-      left: 12%;
-      transform-origin: 0 50% 0;
-      transform: translateX(-10%);
-      transition: all 3s linear;
-    }
-    .tent-image {
-      content: url('../images/tent.svg');
-      position: absolute;
-      opacity: 0.04;
-      // height: 100px;
-      max-width: 500px;
-      width: 40vh;
-      display: block;
-      bottom: 0;
-      left: 53%;
-      transform-origin: 0 50% 0;
-      transform: translateX(50%);
-      transition: all 3s linear;
-      // z-index: 10;
-    }
+  
+  &:hover .forest-1 {
+    filter: grayscale(1) brightness(1.15) blur(2px);
   }
-  &:hover {
-    .tent-image {
-      transform: translate(54%,-2%) scale(1.03);
-      opacity: 0.03;
-    }
-    .camping-tent-image {
-      transform: translate(-16%,-2%) scale(1.03);
-      opacity: 0.03;
-    }
+  &:hover .forest-2 {
+    filter: grayscale(1) brightness(1.15) blur(2.5px);
+  }
+  &:hover .forest-3 {
+    filter: grayscale(1) brightness(1.15) blur(3px);
+  }
+  
+  .forest-1, .forest-2, .forest-3 {
+    transition: filter 1s linear;
+    // opacity: 0.3;
+    position: absolute;
+    bottom: 0;
+    left:0;
+    right: 0;
+    object-fit: cover;
+    
+  }
+  .forest-1{
+    filter: grayscale(1) brightness(1.15) blur(0.2px);
+    z-index: -1;
+  }
+  .forest-2 {
+    filter: grayscale(1) brightness(1.15) blur(0.4px);
+    z-index: -2;
+    
+  }
+  .forest-3 {
+    filter: grayscale(1) brightness(1.15) blur(0.6px);
+    z-index: -3;
+    
+  }
+  .hero-title{
+    z-index: 99;
   }
   .fa-plus {
     margin-left: 20px;
@@ -289,4 +288,15 @@ footer {
 }
 textarea {
   white-space: nowrap;
+}
+
+
+
+.totop {
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+}
+.totop a {
+  display: none;
 }

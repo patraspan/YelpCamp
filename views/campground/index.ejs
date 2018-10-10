@@ -1,14 +1,21 @@
 <% include ../partials/header %>
 
 <header id="campgrounds-hero" class="jumbotron jumbotron-fluid">
+<img class="forest-3" src="../images/3.svg" alt="">
+<img class="forest-2" src="../images/2.svg" alt="">
+
+<img class="forest-1" src="../images/1.svg" alt="">
+
     <div class="container text-center">
-    <img class="camping-tent-image" src="../images/camping-tent.svg" alt="">
-    <img class="tent-image" src="../images/tent.svg" alt="">
+    <div class="hero-title py-4">
+        
+   
         <h1>Welcome to YelpCamp!</h1>
-        <p class="mb-4"> View our hand-picked campgrounds from all over the world</p>
+        <h6 class="mb-4"> View our hand-picked campgrounds from all over the world</h6>
         <p>
             <a id="newCampBtn" class="btn btn-success my-4" href="/campgrounds/new">Add new Campground<i class="fas fa-plus"></i></a>
         </p>
+    </div>
     </div>
 </header>
 <div id="campgrounds-showpage" class="container">
@@ -22,14 +29,14 @@
 
     <div class="row text-center my-4">
         <% if(noMatch !== null) { %>
-        <div class="col-md-12 text-center campgrounds-results flex">
+        <div class="col-sm-12 text-center campgrounds-results flex">
             <h3>
                 <%= noMatch %>
             </h3>
         </div>
         <% } %>
         <% campgrounds.forEach(function(campground) {%>
-        <div class="col-md-3 col-sm-6 campgrounds-results">
+        <div class="col-lg-3 col-md-4 col-sm-4 campgrounds-results">
         <div class="card-wrapper">
         <div class="card mb-3">
             <img class="card-img-top" src="<%= campground.image %>" alt="Card image cap">
