@@ -1,42 +1,6 @@
 $(document).ready(function () {
   "use strict"; // Start of use strict
-
-  // Floating label headings for the contact form
-  $("body").on("input propertychange", ".floating-label-form-group", function (e) {
-    $(this).toggleClass("floating-label-form-group-with-value", !!$(e.target).val());
-  }).on("focus", ".floating-label-form-group", function () {
-    $(this).addClass("floating-label-form-group-with-focus");
-  }).on("blur", ".floating-label-form-group", function () {
-    $(this).removeClass("floating-label-form-group-with-focus");
-  });
-
-  // Show the navbar when the page is scrolled up
-  var MQL = 992;
-
-  //primary navigation slide-in effect
-  if ($(window).width() > MQL) {
-    var headerHeight = $('#mainNav').height();
-    $(window).on('scroll', {
-        previousTop: 0
-      },
-      function () {
-        var currentTop = $(window).scrollTop();
-        //check if user is scrolling up
-        if (currentTop < this.previousTop) {
-          //if scrolling up...
-          if (currentTop > 0 && $('#mainNav').hasClass('is-fixed')) {
-            $('#mainNav').addClass('is-visible');
-          } else {
-            $('#mainNav').removeClass('is-visible is-fixed');
-          }
-        } else if (currentTop > this.previousTop) {
-          //if scrolling down...
-          $('#mainNav').removeClass('is-visible');
-          if (currentTop > headerHeight && !$('#mainNav').hasClass('is-fixed')) $('#mainNav').addClass('is-fixed');
-        }
-        this.previousTop = currentTop;
-      });
-  }
+  
   //opening login modal
   $('.loginButton').on('click', () => {
     console.log('clik');
@@ -59,6 +23,18 @@ $(document).ready(function () {
       $('#modalUsername').focus();
     }, 100);
   })
+  //focus in comment textarea
+  $('.comment-btn').on('click', () => {
+    setTimeout(() => {
+      $('.comment-textarea').focus();
+    }, 50);
+  })
+  //focus in comment textarea
+  $('.edit-btn').on('click', () => {
+    setTimeout(() => {
+      $('.edit-textarea').focus();
+    }, 50);
+  })
 
 //card image in showpage in proportion of 3:4
   let cardImage = $('.card-img-top'),
@@ -71,7 +47,7 @@ $(document).ready(function () {
   //fadeout messages;
   let alertMsg = $('.alert');
   if (alertMsg) {
-    setTimeout(()=> {alertMsg.fadeOut(1000)}, 3000);
+    setTimeout(()=> {alertMsg.fadeOut(1000)}, 2200);
   }
 
   
@@ -85,6 +61,38 @@ $(document).ready(function () {
     height: 200
   })
 });
+
+
+
+
+
+  // Show the navbar when the page is scrolled up
+var MQL = 992;
+//primary navigation slide-in effect
+if ($(window).width() > MQL) {
+  var headerHeight = $('#mainNav').height();
+  $(window).on('scroll', {
+      previousTop: 0
+    },
+    function () {
+      var currentTop = $(window).scrollTop();
+      //check if user is scrolling up
+      if (currentTop < this.previousTop) {
+        //if scrolling up...
+        if (currentTop > 0 && $('#mainNav').hasClass('is-fixed')) {
+          $('#mainNav').addClass('is-visible');
+        } else {
+          $('#mainNav').removeClass('is-visible is-fixed');
+        }
+      } else if (currentTop > this.previousTop) {
+        //if scrolling down...
+        $('#mainNav').removeClass('is-visible');
+        if (currentTop > headerHeight && !$('#mainNav').hasClass('is-fixed')) $('#mainNav').addClass('is-fixed');
+      }
+      this.previousTop = currentTop;
+    });
+}
+
 
 
 $(document).ready(function () {

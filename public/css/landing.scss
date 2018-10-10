@@ -87,9 +87,19 @@ footer {
     display: flex;
     justify-content: center;
     align-content: center;
-  }
-  footer .row a {
-    font-size: 2rem;
+    a {
+        font-size: 2rem;
+        color: var(--gray) !important;
+        
+        &:hover i{
+          color: var(--white) !important;
+          transform: scale(1.02);
+          text-shadow: 0px 0px 6px rgba($color: #fff, $alpha: 0.30);
+        }
+        i {
+          transition: all 50ms linear;
+        }
+      }
   }
 
 @keyframes imageAnimation { 

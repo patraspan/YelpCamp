@@ -1,9 +1,9 @@
 <% include ../partials/header %>
 
 <header id="campgrounds-hero" class="jumbotron jumbotron-fluid">
+    <div class="container text-center">
     <img class="camping-tent-image" src="../images/camping-tent.svg" alt="">
     <img class="tent-image" src="../images/tent.svg" alt="">
-    <div class="container text-center">
         <h1>Welcome to YelpCamp!</h1>
         <p class="mb-4"> View our hand-picked campgrounds from all over the world</p>
         <p>
@@ -30,17 +30,19 @@
         <% } %>
         <% campgrounds.forEach(function(campground) {%>
         <div class="col-md-3 col-sm-6 campgrounds-results">
-
-            <div class="card mb-3">
-                <img class="card-img-top" src="<%= campground.image %>" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <%= campground.name %>
-                    </h5>
-                    <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary">More info</a>
-                    </p>
-                </div>
+        <div class="card-wrapper">
+        <div class="card mb-3">
+            <img class="card-img-top" src="<%= campground.image %>" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <%= campground.name %>
+                </h5>
+                <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary">More info</a>
+                </p>
             </div>
+            </div>
+        </div>
+            
         </div>
         <% }) %>
     </div>

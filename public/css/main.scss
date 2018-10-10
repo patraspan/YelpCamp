@@ -42,9 +42,9 @@ body {
 }
 //alert messages
 .alert-wrapper {
-  position: absolute;
+  position: fixed;
+  width: 30%;
   top: 7rem;
-  left: 0;
   right: 0;
   z-index: 5;
 }
@@ -59,39 +59,41 @@ body {
 
 #campgrounds-hero {
   overflow: hidden;
-  position: relative;
   min-height: 40vh;
   padding-top: 6rem;
   padding-bottom: 6rem;
   background-color: #F6F6F8;
   margin-bottom: 2rem;
-  .camping-tent-image{
-    position: absolute;
-    opacity: 0.05;
-    // height: 100px;
-    max-width: 500px;
-    width: 40vh;
-    display: block;
-    bottom: 0;
-    left: 12%;
-    transform-origin: 0 50% 0;
-    transform: translateX(-10%);
-    transition: all 3s linear;
-  }
-  .tent-image {
-    content: url('../images/tent.svg');
-    position: absolute;
-    opacity: 0.04;
-    // height: 100px;
-    max-width: 500px;
-    width: 40vh;
-    display: block;
-    bottom: 0;
-    left: 53%;
-    transform-origin: 0 50% 0;
-    transform: translateX(50%);
-    transition: all 3s linear;
-    // z-index: 10;
+  .container {
+    position: relative;
+    .camping-tent-image{
+      position: absolute;
+      opacity: 0.05;
+      // height: 100px;
+      max-width: 500px;
+      width: 40vh;
+      display: block;
+      bottom: 0;
+      left: 12%;
+      transform-origin: 0 50% 0;
+      transform: translateX(-10%);
+      transition: all 3s linear;
+    }
+    .tent-image {
+      content: url('../images/tent.svg');
+      position: absolute;
+      opacity: 0.04;
+      // height: 100px;
+      max-width: 500px;
+      width: 40vh;
+      display: block;
+      bottom: 0;
+      left: 53%;
+      transform-origin: 0 50% 0;
+      transform: translateX(50%);
+      transition: all 3s linear;
+      // z-index: 10;
+    }
   }
   &:hover {
     .tent-image {
@@ -167,13 +169,22 @@ body {
   }
   .campgrounds-results {
     min-height: 30vh;
-     
+    .card-wrapper {
+      transition: all 2000ms linear;
+
+      &:hover {
+        transform: scale(1.02);
+        box-shadow: 2px 2px 20px rgba($color: var(--gray), $alpha: 0.30)
+      }
+      .card-img-top {
+        min-height: 170px;
+        height: 70%;
+        object-fit: cover;
+      }
+    }
   }
-  .card-img-top {
-    min-height: 170px;
-    height: 70%;
-    object-fit: cover;
-  }
+  
+  
 }
 
 //Detailed page of campground
@@ -181,6 +192,17 @@ body {
   .img-fluid {
     object-fit: cover;
     min-height: 500px;
+  }
+}
+//login page
+.login-page {
+  min-height: calc(100vh - 190px);
+  position: relative;
+  .align {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%)
   }
 }
 // Footer section
@@ -192,32 +214,48 @@ footer {
   right: 0;
   min-height: 3.5rem;
   /* background: #2C3E50; */
+  .row {
+    line-height: 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    a {
+      font-size: 2rem;
+      color: var(--gray) !important;
+      
+      &:hover i{
+        color: var(--white) !important;
+        transform: scale(1.02);
+        text-shadow: 0px 0px 6px rgba($color: #fff, $alpha: 0.30);
+      }
+      i {
+        transition: all 50ms linear;
+      }
+    }
+    
+  }
 }
 
-footer .row {
-  line-height: 3.5rem;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-}
-footer .row a {
-  font-size: 2rem;
-}
 /* EDIT CAMPGROUND */
 .nowrap {
   overflow: hidden;
 }
+/* USER */
+#collapseDelete{
+  border: 1px solid var(--primary);
+  border-radius: 10px;
 
+}
 
 /* COMMENT SECTION */
-#commentSection .row .editButtons {
+#commentSection .row .edit-buttons {
   display: inline-block;
   visibility: hidden;
   opacity: 0;
   transition: all ease-in 200ms;
 }
 
-#commentSection .row:hover .editButtons {
+#commentSection .row:hover .edit-buttons {
   opacity: 1;
   visibility: visible;
 }

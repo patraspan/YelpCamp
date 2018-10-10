@@ -53,6 +53,7 @@ router.post('/login', passport.authenticate("local",
   failureFlash : "User doesn't exist. Please create an account"
 }));
 
+
 //Log out
 router.get('/logout', (req, res) => {
   req.logout();

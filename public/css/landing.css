@@ -113,6 +113,19 @@ footer .row {
 
 footer .row a {
   font-size: 2rem;
+  color: var(--gray) !important;
+}
+
+footer .row a:hover i {
+  color: var(--white) !important;
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+  text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.3);
+}
+
+footer .row a i {
+  -webkit-transition: all 50ms linear;
+  transition: all 50ms linear;
 }
 
 @-webkit-keyframes imageAnimation {

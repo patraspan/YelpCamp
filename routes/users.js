@@ -24,7 +24,7 @@ router.get('/:id', isLoggedIn, (req, res) => {
   });
 });
 //EDIT USER ROUTE
-router.get('/:id/edit', middleware.isLoggedIn, (req, res) => {
+router.get('/:id/edit', isLoggedIn, (req, res) => {
   User.findById(req.params.id, (err, foundUser) => {
     res.render("users/edit", {
       user: foundUser
@@ -45,7 +45,7 @@ router.put('/:id', middleware.isLoggedIn, (req, res) => {
 });
 
 //DELETE ROUTE
-router.delete('/:id', middleware.isLoggedIn, (req, res) => {
+router.delete('/:id', isLoggedIn, (req, res) => {
   User.findByIdAndRemove(req.params.id, (err) => {
     if (err) {
       req.flash("error", "Something went wrong");

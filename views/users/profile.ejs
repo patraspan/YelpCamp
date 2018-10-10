@@ -30,12 +30,21 @@
         </div>
       </div>
       <div class="mx-4 my-4 text-center">
-      <a class="btn btn-outline-warning" href="/users/<%= user._id %>/edit">Edit</a>
-      <form style="display: inline;" action="/users/<%= user._id %>/?_method=DELETE" method="POST">
-        <button class="btn btn-outline-danger btn-sm" onclick="return confirm('Are you sure you want to delete Your account?')">Delete</button>
-      </div>
+        <a href="/users/<%= user._id %>/edit">Edit account</a>
+     </div>
+     
+     <div class="mx-4 my-4 text-center">
+     <a data-toggle="modal" data-target="#DeleteModal" href="#DeleteModal">Delete my account</a>
+
+        <div class="collapse my-3 py-3 px-1" id="collapseDelete">
+          <div>
+            
+          </div>
+        </div>
+        </div>
+
+
       
-  </form>
     </div>
 
     <div class="col-md-8">
@@ -50,9 +59,35 @@
       </ul>
     </div>
   </div>
-  
+
 </div>
 
+
+<!-- Modal -->
+<div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="DeleteModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <h5>Are You sure You want to do this?</h5>
+        <h6>This action can't be undone</h6>
+      </div>
+      <div class="modal-footer">
+                <form action="/users/<%= user._id %>/?_method=DELETE" method="POST">
+                  <button class="btn btn-danger">Yes, Delete it</button>
+                </form>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 
 <% include ../partials/footer %>

@@ -1,61 +1,60 @@
 <% include ../partials/header %>
+<div class="container">
+  <div class="row">
+    <form class="mx-auto card card-body mt-4 col-sm-6" action="/users/<%= user._id %>?_method=PUT" method="POST">
+      <fieldset>
+        <legend class="display-4 text-center mb-4">Edit user profile</legend>
+          <div class="form-group row">
+          <label for="name" class="col-sm-3 col-form-label">Username</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" name="user[username]" placeholder="Username" value="<%= user.username%>">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label" for="password">Password</label>
+          <div class="col-sm-9">
+            <input type="password" class="form-control" name="user[password]" placeholder="Password" value="<%= user.password%>">
+          </div>
+        </div>
+        <hr>
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label" for="password">admin Code</label>
+          <div class="col-sm-9">
+            <input type="password" class="form-control" name="user[adminCode]" placeholder="code" value="<%= user.isAdmin%>">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label" for="firstName">First Name</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" name="user[firstName]" placeholder="First Name" value="<%= user.firstName%>">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label" for="lastName">Last Name</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" name="user[lastName]" placeholder="Last Name" value="<%= user.lastName %>">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label" for="email">Email</label>
+          <div class="col-sm-9">
+            <input type="email" class="form-control" name="user[email]" placeholder="Email" value="<%= user.email%>">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label" for="avatar">Avatar</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" name="user[avatar]" placeholder="Avatar link" value="<%= user.avatar%>">
+          </div>
+        </div>
+  </div>
+  <div class="text-center my-4">
+  <button type="submit" class="btn btn-success">Save changes</button>
+  <a href="/users/<%= user._id %>" class="btn btn-secondary"> GO BACK</a>
+</div>
 
-  <form class="mx-auto card card-body mt-4" style="width: 500px" action="/users/<%= user._id %>?_method=PUT" method="POST">
-    <fieldset>
-      <legend>Edit user profile</legend>
-      <div class="form-group row">
-        <label for="name" class="col-sm-3 col-form-label">Username</label>
-        <div class="col-sm-9">
-          <input type="text" class="form-control" name="user[username]" placeholder="Username" value="<%= user.username%>">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-sm-3 col-form-label" for="password">Password</label>
-        <div class="col-sm-9">
-          <input type="password" class="form-control" name="user[password]" placeholder="Password" value="<%= user.password%>">
-        </div>
-      </div>
-      <hr>
-      <div class="form-group row">
-        <label class="col-sm-3 col-form-label" for="password">admin Code</label>
-        <div class="col-sm-9">
-          <input type="password" class="form-control" name="user[adminCode]" placeholder="code" value="<%= user.isAdmin%>">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-sm-3 col-form-label" for="firstName">First Name</label>
-        <div class="col-sm-9">
-          <input type="text" class="form-control" name="user[firstName]" placeholder="First Name" value="<%= user.firstName%>">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-sm-3 col-form-label" for="lastName">Last Name</label>
-        <div class="col-sm-9">
-          <input type="text" class="form-control" name="user[lastName]" placeholder="Last Name" value="<%= user.lastName %>">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-sm-3 col-form-label" for="email">Email</label>
-        <div class="col-sm-9">
-          <input type="email" class="form-control" name="user[email]" placeholder="Email" value="<%= user.email%>">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-sm-3 col-form-label" for="avatar">Avatar</label>
-        <div class="col-sm-9">
-          <input type="text" class="form-control" name="user[avatar]" placeholder="Avatar link" value="<%= user.avatar%>">
-        </div>
-      </div>
-      </div>
-      <div class="text-center">
-        <button type="submit" class="btn btn-success">Save changes</button>
-        <a href="/users/<%= user._id %>" class="btn btn-outline-secondary"> GO BACK</a>
-        <form style="display: inline;" action="/users/<%= user._id %>/?_method=DELETE" method="POST">
-          <button class="btn btn-outline-danger btn-sm">Delete</button>
-        </form>
-      </div>
-
-    </fieldset>
+  </fieldset>
   </form>
-
+</div>
+</div>
   <% include ../partials/footer %>

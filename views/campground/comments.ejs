@@ -2,7 +2,7 @@
 <div id="commentSection" class="card card-body bg-light border-0">
 <!--Setting up the add new comment button that is used for collapsing-->
 <div class="text-left mb-3">
-    <a class="btn btn-success" role="button" data-toggle="collapse" href="#collapseComment" aria-expanded="false"
+    <a class="comment-btn btn btn-success" role="button" data-toggle="collapse" href="#collapseComment" aria-expanded="false"
         aria-controls="collapseComment">
         <i class="fas fa-plus-circle mr-2"></i> Add new comment</a>
 </div>
@@ -27,7 +27,7 @@ Comments
                     
                 </h4>
                 <form id="add-comment-form" action="/campgrounds/<%= campground._id %>/comments" method="POST">
-                    <div class="form-group"><textarea class="form-control" name="comment[text]" placeholder="Write your comment..." form="add-comment-form" rows="5"
+                    <div class="form-group"><textarea class="comment-textarea form-control" name="comment[text]" placeholder="Write your comment..." form="add-comment-form" rows="5"
                             cols="70"></textarea>
                     </div>
                     <div class="form-group">
@@ -76,14 +76,14 @@ Comments
                 <!--If the visitor is logged in and the owner of the comment, show the edit and delete buttons-->
                 <% if (currentUser && currentUser._id.equals(comment.author.id)) { %>
                     <!--Edit button used for collapsing the edit comment form-->
-                    <div class="editButtons text-sm-right">
+                    <div class="edit-buttons text-sm-right">
                     
-                    <a class="btn btn-sm btn-warning" role="button" data-toggle="collapse" href="#collapseEdit<%= comment._id %>" aria-expanded="false"
+                    <a class="edit-btn btn btn-sm btn-warning" role="button" data-toggle="collapse" href="#collapseEdit<%= comment._id %>" aria-expanded="false"
                         aria-controls="collapse<%= comment._id %>">
                         Edit</a>
 
                     <!--Delete comment button-->
-                    <form id="delete-form" action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST"
+                    <form id="deleting-form" action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST"
                         style="display: inline;">
                         <button class="btn btn-sm btn-danger">Delete</button>
                     </form>
@@ -97,8 +97,8 @@ Comments
                             <form id="edit-comment-form<%= comment._id %>" action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=PUT"
                                 method="POST">
                                 <div class="form-group">
-                                    <textarea class="commentText form-control" name="comment[text]" placeholder="Your comment text..." form="edit-comment-form<%= comment._id %>"
-                                        rows="4" cols="70"><%- comment.text %></textarea>
+                                    <textarea  class="edit-textarea form-control" name="comment[text]" placeholder="Your comment text..." form="edit-comment-form<%= comment._id %>"
+                                        rows="4" cols="70" autofocus><%- comment.text %></textarea>
                                 </div>
                                 <div class="form-group">
                                     <button class="btn btn-warning btn-sm">Accept changes</button>
